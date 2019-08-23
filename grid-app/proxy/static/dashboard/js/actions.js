@@ -88,6 +88,10 @@ $(document).ready(function(){
 
     });
 
+    $(document).on("click", "#register", function(){
+        window.location.replace("register");
+    });
+
     function getCookie(cname) {
         var name = cname + "=";
         var decodedCookie = decodeURIComponent(document.cookie);
