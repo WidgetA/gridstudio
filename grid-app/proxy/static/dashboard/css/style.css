@@ -197,8 +197,15 @@ input:-webkit-autofill {
   border: 1px solid #aaa;
   border-radius: 2px;
 }
-.login-form button {
+#login {
   padding: 10px 20px;
+  margin: 10px 10px;
   font-size: 17px;
-  width: 100%;
+  width: 40%;
+}
+#register {
+  padding: 10px 20px;
+  margin: 10px 10px;
+  font-size: 17px;
+  width: 40%;
 }
