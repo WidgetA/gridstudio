@@ -267,7 +267,7 @@ func main() {
 		http.Redirect(w, r, "/login", 302)
 	})
 
-	http.HandleFunc("/register", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/dashboard/register", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == "GET" {
 			io.WriteString(w, renderTemplate("static/dashboard/register.html"))
 		}
