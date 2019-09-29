@@ -89,7 +89,7 @@ $(document).ready(function(){
     });
 
     $(document).on("click", "#register", function(){
-        window.location.replace("register");
+        window.location.replace("/register");
     });
 
     function getCookie(cname) {
