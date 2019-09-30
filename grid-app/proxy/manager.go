@@ -270,7 +270,27 @@ func main() {
 	http.HandleFunc("/register", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == "GET" {
 			io.WriteString(w, renderTemplate("static/dashboard/register.html"))
+		} else {
+			r.ParseForm()
+			email := r.Form.Get("email")
+			password := r.Form.Get("password")
+
+			h := sha1.New()
+			io.WriteString(h, password+constPasswordSalt)
+			passwordHashed := base64.URLEncoding.EncodeToString(h.Sum(nil))
+
+			fmt.Println("Hashed PW: " + passwordHashed)
+			token := RandStringBytes(32)
+
+			_, err := db.Exec("INSERT INTO users(email, password, token) VALUES (?, ?, ?)", email, passwordHashed, token)
+			if err != nil {
+				log.Fatal(err)
+				http.Redirect(w, r, "/register", 302)
+			} else {
+				http.Redirect(w, r, "/login", 302)
+			}
 		}
+
 	})
 
 	http.HandleFunc("/login", func(w http.ResponseWriter, r *http.Request) {

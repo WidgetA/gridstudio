@@ -92,6 +92,7 @@ $(document).ready(function(){
         window.location.assign("/register");
     });
 
+
     function getCookie(cname) {
         var name = cname + "=";
         var decodedCookie = decodeURIComponent(document.cookie);
