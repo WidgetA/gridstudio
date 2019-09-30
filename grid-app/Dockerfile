@@ -14,6 +14,7 @@ locales \
 curl \
 git
 
+RUN apt autoremove
 # # TODO: see if any locale issues arise
 # # RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
 # #     locale-gen
@@ -52,6 +53,8 @@ COPY ./terminal-server/ /home/run/terminal-server/
 # install required NPM packages for term.js
 WORKDIR /home/run/terminal-server/
 RUN npm install --no-cache
+
+RUN npm audit fix
 
 # create work directory
 RUN mkdir /home/user/
