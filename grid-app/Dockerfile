@@ -54,7 +54,7 @@ COPY ./terminal-server/ /home/run/terminal-server/
 WORKDIR /home/run/terminal-server/
 RUN npm install --no-cache
 
-RUN npm audit fix
+RUN npm audit fix --force
 
 # create work directory
 RUN mkdir /home/user/
