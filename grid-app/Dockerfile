@@ -5,8 +5,10 @@ RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selectio
 
 RUN apt clean && \
 apt update && \
-apt upgrade -y&& \
+apt upgrade -y && \
+apt autoremove && \
 apt install -y \ 
+apt autoremove
 software-properties-common \
 build-essential \
 wget \
@@ -31,7 +33,8 @@ ENV PATH /usr/local/go/bin:${PATH}
 # Install Python3.7 from ppa (for fast speed)
 RUN add-apt-repository ppa:deadsnakes/ppa && \
 apt update && \
-apt upgrade && -y\
+apt upgrade -y && \
+apt autoremove && \
 apt install -y python3.7
 
 # copy over all files to /home/source/
