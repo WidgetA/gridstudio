@@ -8,7 +8,6 @@ apt update && \
 apt upgrade -y && \
 apt autoremove && \
 apt install -y \ 
-apt autoremove
 software-properties-common \
 build-essential \
 wget \
